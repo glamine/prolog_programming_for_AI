@@ -1,0 +1,5 @@
+count(nil, 0).
+count(t(Left,_,Right),Res):-
+	count(Left,Lc),
+	count(Right,Rc),
+	Res is Lc + Rc + 1 .

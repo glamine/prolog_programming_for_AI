@@ -1,0 +1,6 @@
+listlength([Head|Tail],Count):-
+	listlength(Tail,PartialCount),
+	Count is PartialCount + 1 .
+
+listlength([],0).
+

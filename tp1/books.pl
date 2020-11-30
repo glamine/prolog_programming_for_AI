@@ -1,0 +1,33 @@
+book(1,'The Art of Prolog',400).
+book(23,'The mistery of Strawberries',42).
+person('Statler').
+person('Waldorf').
+wrote('Statler',1).
+wrote('Waldorf',23).
+hates('Statler',1).
+owns('Waldorf',23).
+
+brochure(ISBN):-
+    book(ISBN,_,Pages),
+    Pages < 100.
+
+hatedBook(Title):-
+    hates(Person,ISBN),
+    book(ISBN,Title,_).
+
+enum(Z):-
+    book(ISBN,Title,Pages),
+    wrote(Author,ISBN),
+    atom_concat('the book ',Title,X),
+    atom_concat(' is written by ',Author,Y),
+    atom_concat(X,Y,Z).
+
+proud_author(Author):-
+    wrote(Author,ISBN),
+    owns(Author,ISBN).
+
+livre(X,Y,Z):-
+    book(X,Y,Z).
+
+%
+
